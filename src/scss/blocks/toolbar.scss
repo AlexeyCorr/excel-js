@@ -1,0 +1,13 @@
+.toolbar {
+  position: absolute;
+  top: $height-header;
+  left: 0;
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-auto-flow: column;
+  grid-gap: 15px;
+  width: 100%;
+  height: $height-toolbar;
+  padding: 10px 30px;
+  border-bottom: $border;
+}

@@ -1,0 +1,45 @@
+.formula {
+  position: absolute;
+  top: $height-header + $height-toolbar;
+  left: 0;
+  width: 100%;
+  height: $height-formula;
+  padding: 10px 0;
+  border-bottom: $border;
+}
+
+.formula__label {
+  position: relative;
+  display: block;
+  padding-left: $info-cell-width;
+
+  &::before {
+    content: 'fx';
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    border-right: $border;
+    padding-right: 25px;
+    font-size: 20px;
+    font-style: italic;
+    opacity: 0.5;
+  }
+}
+
+.formula__field {
+  width: calc(100% - 40px);
+  height: 30px;
+  padding: 0 10px;
+  border:  none;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  font: inherit;
+  color: inherit;
+  font-size: 18px;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}

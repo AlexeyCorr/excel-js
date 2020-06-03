@@ -1,0 +1,43 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr repeat(2, 27px);
+  align-items: center;
+  grid-gap: 15px;
+  width: 100%;
+  height: $height-header;
+  padding: 20px 30px;
+  border-bottom: $border;
+}
+ 
+.header__input {
+  width: 450px;
+  height: 40px;
+  padding: 5px 10px;
+  border:  $border;
+  background-color: var(--main-color);
+  border-radius: 4px;
+  font: inherit;
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: hsla(0,0%,100%,.5)
+  }
+}
+
+.header__button {
+  @include inpres;
+
+  cursor: pointer;
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    opacity: 0.5;
+  }
+}

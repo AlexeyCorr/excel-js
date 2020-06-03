@@ -1,0 +1,23 @@
+:root {
+  --main-color: #181818;
+  --second-color: #fff;
+  --color: hsla(0,0%,100%, 0.85);
+  --main-font: "Roboto", "Helvetica", sans-serif;
+}
+
+$border: 1px solid hsla(0,0%,100%,.2);
+
+// breakpoints
+$sm-max: 767.9px;
+$md: 768px;
+$md-max: 1023.9px;
+$lg: 1024px;
+$lg-max: 1199.9px;
+$xl: 1200px;
+
+$height-header: 80px;
+$height-toolbar: 50px;
+$height-formula: 50px;
+$row-height: 24px;
+$info-cell-width: 45px;
+$column-width: 101px;
