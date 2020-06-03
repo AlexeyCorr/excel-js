@@ -1,0 +1,14 @@
+@mixin ulres {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin inpres {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}

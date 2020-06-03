@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="static/favicon.ico">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<title>Excel App</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<div class="excel">
+			<header class="header">
+				<input class="header__input" type="text" value="Новая таблица">
+
+				<button class="button-icon" aria-label="Удалить">
+					<span class='material-icons'>
+						delete
+					</span>
+				</button>
+
+				<button class="button-icon" aria-label="Выйти из приложения">
+					<span class='material-icons'>
+						exit_to_app
+					</span>
+				</button>
+			</header>
+
+			<main>
+				<div class="toolbar">
+					<button class="button-icon" aria-label="Выйти из приложения">
+						<span class='material-icons'>
+							format_align_center
+						</span>
+					</button>
+
+					<button class="button-icon" aria-label="Выйти из приложения">
+						<span class='material-icons'>
+							format_align_right
+						</span>
+					</button>
+
+					<button class="button-icon" aria-label="Выйти из приложения">
+						<span class='material-icons'>
+							format_align_left
+						</span>
+					</button>
+
+					<button class="button-icon" aria-label="Выйти из приложения">
+						<span class='material-icons'>
+							format_bold
+						</span>
+					</button>
+
+					<button class="button-icon" aria-label="Выйти из приложения">
+						<span class='material-icons'>
+							format_italic
+						</span>
+					</button>
+
+					<button class="button-icon" aria-label="Выйти из приложения">
+						<span class='material-icons'>
+							format_underline
+						</span>
+					</button>
+				</div>
+
+				<div class="formula">
+					<label class="formula__label">
+						<input type="text" class="formula__field">
+					</label>
+				</div>
+
+				<div class="table">
+					<div class="table__row">
+						<div class="table__row-info"></div>
+						<div class="table__data">
+							<div class="table__column">
+								A
+							</div>
+
+							<div class="table__column">
+								B
+							</div>
+
+							<div class="table__column">
+								C
+							</div>
+						</div>
+					</div>
+
+					<div class="table__row">
+						<div class="table__row-info">
+							1
+						</div>
+						<div class="table__data">
+							<div class="table__cell table__cell--selected" contenteditable>A1</div>
+							<div class="table__cell">B1</div>
+							<div class="table__cell">C1</div>
+						</div>
+					</div>
+
+					<div class="table__row">
+						<div class="table__row-info">
+							2
+						</div>
+						<div class="table__data">
+							<div class="table__cell table__cell--selected">A1</div>
+							<div class="table__cell">B1</div>
+							<div class="table__cell">C1</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+</body>
+
+</html>

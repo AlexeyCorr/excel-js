@@ -1,0 +1,16 @@
+.container {
+  min-width: 320px;
+  margin: 0 auto;
+
+  @include media(sm-max) {
+    padding: 0 20px;
+  }
+
+  @media (min-width: 768px) {
+    width: 708px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1150px;
+  }
+}
