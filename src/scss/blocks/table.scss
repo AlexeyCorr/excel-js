@@ -7,14 +7,17 @@
 .table__row {
   display: flex;
   height: $row-height;
+  min-height: $row-height;
 }
 
 .table__row-info {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   width: $info-cell-width;
+  min-height: $row-height;
   background-color: rgba(#fff, 0.2);
   border: $border;
   border-top: none;
@@ -26,11 +29,13 @@
 }
 
 .table__column {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: $row-height;
   width: $column-width;
+  min-width: $min-width;
   background-color: rgba(#fff, 0.2);
   border: $border;
   border-left: none;
@@ -38,9 +43,60 @@
   color: hsla(0,0%,100%, 0.5)
 }
 
+.table__handler {
+  @include inpres;
+
+  position: absolute;
+
+  &:hover,
+  &:focus {
+    background-color: #1a73e8;
+    outline: none;
+  }
+
+  &:focus::before {
+    position: absolute;
+    background-color: #1a73e8;
+    content: '';
+  }
+
+  &--col {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    cursor: col-resize;
+
+    &::before {
+      top: 0;
+      left: 50%;
+      height: 100vh;
+      width: 1px;
+      transform: translateX(-50%);
+    }
+  }
+
+  &--row {
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    cursor: row-resize;
+
+    &::before {
+      top: 50%;
+      left: 0;
+      height: 1px;
+      width: 100vw;
+      transform: translateY(-50%);
+    }
+  }
+}
+
 .table__cell {
   padding: 4px 5px;
-  height: $row-height;
+  height: 100%;
+  min-height: $row-height;
   width: $column-width;
   border: 1px solid hsla(0,0%,100%,.1);
   border-left: none;

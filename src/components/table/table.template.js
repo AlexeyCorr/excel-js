@@ -3,22 +3,48 @@ const CODES = {
   Z: 90
 }
 
-function createCell() {
-  return `<div class="table__cell" contenteditable></div>`
+function createCell(_, index) {
+  return (
+    `<div 
+      class="table__cell"
+      data-col="${index}"
+      contenteditable
+     >
+    </div>`
+  )
 }
 
-function createColumn(content) {
+function createColumn(content, index) {
   return (
-    `<div class="table__column">
+    `<div 
+      class="table__column" 
+      data-type="resizable"
+      data-col="${index}"
+    >
       ${content}
+      <button
+        class="table__handler table__handler--col"
+        data-resize="col"
+        aria-label="Потяни за меня"
+      >
+      </button>
     </div>`
   )
 }
 
 function createRow(index, content) {
+  const getResizeHandler = (needResize) => {
+    return needResize
+      ? '<button class="table__handler table__handler--row" data-resize="row" aria-label="Потяни за меня"></button>'
+      : ''
+  }
+
   return (
-    `<div class="table__row">
-      <div class="table__row-info">${index ? index : ''}</div>
+    `<div class="table__row" data-type="resizable">
+      <div class="table__row-info">
+        ${index ? index : ''}
+        ${getResizeHandler(index)}
+      </div>
       <div class="table__data">${content}</div>
     </div>`
   )
@@ -37,7 +63,7 @@ export function createTable(rowsCount = 15) {
       .map(toChar)
       .map(createColumn)
       .join('')
-    
+
   rows.push(createRow(null, columns))
 
   for (let i = 0; i < rowsCount; i++) {
