@@ -29,6 +29,22 @@ class Dom {
     return this.$el.outerHTML.trim()
   }
 
+  text(text) {
+    if (typeof text === 'string') {
+      if (this.$el.tagName.toLowerCase() === 'input') {
+        this.$el.value = text
+      } else {
+        this.$el.textContent = text
+      }
+      return this
+    }
+
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return this.$el.value.trim()
+    }
+    return this.$el.textContent.trim()
+  }
+
   clear() {
     this.html('')
     return this
@@ -75,10 +91,12 @@ class Dom {
 
   addClass(className) {
     this.$el.classList.add(className)
+    return this
   }
 
   removeClass(className) {
     this.$el.classList.remove(className)
+    return this
   }
 
   css(styles = {}) {
