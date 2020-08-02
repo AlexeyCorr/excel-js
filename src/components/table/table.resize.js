@@ -41,7 +41,8 @@ export function resizeHandler($root, evt) {
 
       resolve({
         value,
-        id: type === 'col' ? $parent.data.col : null
+        type,
+        id: type === 'col' ? $parent.data.col : $parent.data.row
       })
 
       document.removeEventListener('mousemove', onColMouseMove);
