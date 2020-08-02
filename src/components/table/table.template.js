@@ -3,7 +3,9 @@ const CODES = {
   Z: 90
 }
 
-function createCell(row) {
+const DEFAULT_WIDTH = 101
+
+function createCell(state, row) {
   return function(_, col) {
     return (
       `<div 
@@ -11,6 +13,7 @@ function createCell(row) {
         data-col="${col}"
         data-type="cell"
         data-id="${row}:${col}"
+        style="width: ${getWidth(state.colState, col)}"
         contenteditable
       >
       </div>`
@@ -18,14 +21,15 @@ function createCell(row) {
   }
 }
 
-function createColumn(content, index) {
+function createColumn({col, index, width}) {
   return (
     `<div
       class="table__column" 
       data-type="resizable"
       data-col="${index}"
+      style="width: ${width}"
     >
-      ${content}
+      ${col}
       <button
         class="table__handler table__handler--col"
         data-resize="col"
@@ -58,13 +62,28 @@ function toChar(_, index) {
   return String.fromCharCode(CODES.A + index)
 }
 
-export function createTable(rowsCount = 15) {
+function getWidth(state, index) {
+  return (state[index] || DEFAULT_WIDTH) + 'px'
+}
+
+function withWidthFrom(state) {
+  return function(col, index) {
+    return {
+      col,
+      index,
+      width: getWidth(state.colState, index)
+    }
+  }
+}
+
+export function createTable(rowsCount = 15, state= {}) {
   const columnsCount = CODES.Z - CODES.A + 1
   const rows = []
 
   const columns = new Array(columnsCount)
       .fill('')
       .map(toChar)
+      .map(withWidthFrom(state))
       .map(createColumn)
       .join('')
 
@@ -73,7 +92,7 @@ export function createTable(rowsCount = 15) {
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(columnsCount)
         .fill('')
-        .map(createCell(row))
+        .map(createCell(state, row))
         .join('')
 
     rows.push(createRow(row + 1, cells))
