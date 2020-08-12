@@ -5,6 +5,7 @@ const defaultState = {
   colState: {},
   rowState: {},
   dataState: {},
+  stylesState: {},
   currentText: '',
   currentStyles: defaultStyles
 }
