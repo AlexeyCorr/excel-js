@@ -12,7 +12,6 @@ function toButton(button) {
 }
 
 export function createHeader(state) {
-  console.log('header ', state)
   const buttons = [
     {
       action: 'Удалить таблицу',
