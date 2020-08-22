@@ -30,7 +30,7 @@ class Dom {
   }
 
   text(text) {
-    if (typeof text === 'string') {
+    if (typeof text !== 'undefined') {
       if (this.$el.tagName.toLowerCase() === 'input') {
         this.$el.value = text
       } else {
@@ -110,6 +110,13 @@ class Dom {
       res[s] = this.$el.style[s]
       return res
     }, {})
+  }
+
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value)
+    }
+    return this
   }
 }
 
