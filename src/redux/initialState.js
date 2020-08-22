@@ -6,6 +6,7 @@ const defaultState = {
   rowState: {},
   dataState: {},
   stylesState: {},
+  title: 'Новая таблица',
   currentText: '',
   currentStyles: defaultStyles
 }
