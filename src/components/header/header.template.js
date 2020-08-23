@@ -2,7 +2,8 @@ function toButton(button) {
   return (
     `<button
       class="button-icon"
-      title="${button.action}"
+      title="${button.title}"
+      data-action="${button.action}"
     >
       <span class='material-icons'>
         ${button.icon}
@@ -14,11 +15,13 @@ function toButton(button) {
 export function createHeader(state) {
   const buttons = [
     {
-      action: 'Удалить таблицу',
+      action: 'delete',
+      title: 'Удалить таблицу',
       icon: 'delete'
     },
     {
-      action: 'Выйти',
+      action: 'exit',
+      title: 'Выйти',
       icon: 'exit_to_app'
     }
   ]

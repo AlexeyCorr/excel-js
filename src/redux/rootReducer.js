@@ -1,4 +1,11 @@
-import {CHANGE_TEXT, CHANGE_STYLES, TABLE_RESIZE, APPLY_STYLE, SET_TITLE} from '@/redux/types'
+import {
+  CHANGE_TEXT,
+  CHANGE_STYLES,
+  TABLE_RESIZE,
+  APPLY_STYLE,
+  SET_TITLE,
+  UPDATE_DATE
+} from '@/redux/types'
 
 function value(state, field, action) {
   const val = state[field] || {}
@@ -48,6 +55,12 @@ export function rootReducer(state, action) {
       return {
         ...state,
         title: action.data.value
+      }
+
+    case UPDATE_DATE:
+      return {
+        ...state,
+        openedDate: new Date().toJSON()
       }
 
     default:
